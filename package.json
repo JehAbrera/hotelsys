@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "daisyui": "^4.10.1",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.13",
+    "tailwindcss": "^3.4.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tailwindcss -i ./app/input.css -o ./app/output.css --watch"
+  }
+}
