@@ -29,9 +29,9 @@ if (!isset($_SESSION['isLogged'])) {
     <main class=" w-full flex flex-col items-center gap-4">
         <div class=" w-3/5">
             <form action="Controller.php" method="post" class=" w-full join grid grid-cols-3">
-                <button type="submit" name="page" value="Pending" class="btn join-item">Pending</button>
-                <button type="submit" name="page" value="Accepted" class="btn join-item">Accepted</button>
-                <button type="submit" name="page" value="Rejected" class="btn join-item">Rejected</button>
+                <button type="submit" name="page" value="Pending" class="btn btn-warning btn-outline join-item">Pending</button>
+                <button type="submit" name="page" value="Accepted" class="btn btn-success btn-outline join-item">Accepted</button>
+                <button type="submit" name="page" value="Rejected" class="btn btn-error btn-outline join-item">Rejected</button>
             </form>
         </div>
         <div class=" flex justify-between w-3/5">
@@ -53,13 +53,13 @@ if (!isset($_SESSION['isLogged'])) {
                             </div>
                         </div>
                         <div class="indicator">
-                            <button type="submit" name="find" class="btn join-item">Search</button>
+                            <button type="submit" name="find" class="btn btn-primary join-item">Search</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        <table class=" w-3/5 table table-zebra">
+        <table class=" w-3/5 table table-zebra outline">
             <thead>
                 <tr>
                     <th>Reservee</th>
@@ -82,7 +82,7 @@ if (!isset($_SESSION['isLogged'])) {
                         <td><?= date('F d, Y', strtotime($value[5])) ?></td>
                         <td><?= date('F d, Y', strtotime($value[6])) ?></td>
                         <td>
-                            <div class=" tooltip" data-tip="View Details"><label class=" cursor-pointer btn" for="modal<?= $value[0] ?>">View</label></div>
+                            <label class=" cursor-pointer btn btn-primary" for="modal<?= $value[0] ?>">View</label>
                             <input type="checkbox" id="modal<?= $value[0] ?>" class="modal-toggle" />
                             <div class="modal" role="dialog">
                                 <div class="modal-box">
