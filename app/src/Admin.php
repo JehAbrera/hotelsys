@@ -79,8 +79,8 @@ if (!isset($_SESSION['isLogged'])) {
                     <tr>
                         <td><?= $value[1] ?></td>
                         <td><?= $value[3] ?></td>
-                        <td><?= $value[5] ?></td>
-                        <td><?= $value[6] ?></td>
+                        <td><?= date('F d, Y', strtotime($value[5])) ?></td>
+                        <td><?= date('F d, Y', strtotime($value[6])) ?></td>
                         <td>
                             <div class=" tooltip" data-tip="View Details"><label class=" cursor-pointer btn" for="modal<?= $value[0] ?>">View</label></div>
                             <input type="checkbox" id="modal<?= $value[0] ?>" class="modal-toggle" />
