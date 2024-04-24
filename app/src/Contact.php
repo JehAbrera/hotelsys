@@ -37,7 +37,7 @@
     <main>
         <section role="hero" id="hero" class=" h-screen w-full flex flex-col items-center justify-center">
             <div class=" w-4/5 h-3/5 grid grid-cols-2 text-slate-950">
-                <div class=" flex justify-center items-center">
+                <div class=" flex justify-center items-center order-2">
                     <img src="../src/images/person.png" alt="image" class=" w-4/5">
                 </div>
                 <div class=" flex flex-col items-center justify-between bg-zinc-100 rounded-xl p-4">
@@ -54,7 +54,7 @@
                         <span class=" divider">Get the latest news</span>
                         <div class="join">
                             <input class="input input-bordered join-item rounded-full" placeholder="Email" />
-                            <button class="btn btn-success join-item rounded-r-full">Subscribe</button>
+                            <button class="btn btn-primary join-item rounded-r-full">Subscribe</button>
                         </div>
                     </div>
                 </div>

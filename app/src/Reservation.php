@@ -4,13 +4,8 @@ include 'Database.php';
 
 class Reservation extends Database
 {
-    // Implement logic functions here //
-    // Integrate CRUD - Create, Read, Update, Delete //
-
-    // Some private variables //
     private $days, $dayRate, $addChar, $subTot, $discRate, $discTot, $addTot, $total;
 
-    // Function to validate reservation date FROM and TO
     protected function isValidDate($from, $to)
     {
         $start = new DateTime($from);
@@ -21,7 +16,6 @@ class Reservation extends Database
         return true;
     }
 
-    // Validate phone number format
     protected function isValidPhone($phone)
     {
         $justNums = preg_replace("/[^0-9]/", '', $phone);
@@ -33,7 +27,6 @@ class Reservation extends Database
     }
 
     // Create //
-    // Add Reservation inquiry to database //
     public function addReservation($name, $phone, $date, $time, $from, $to, $room, $cap, $payment, $days, $sub, $disc, $add, $total, $status)
     {
         $sql = "INSERT INTO reservations VALUES ('', ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -44,8 +37,6 @@ class Reservation extends Database
     }
 
     // Read //
-    // Add feature of finding specific reservations for admin //
-    // Consider Reservation Status filter //
     public function viewList($page)
     {
         if (isset($_SESSION['view'])) {
@@ -75,9 +66,30 @@ class Reservation extends Database
         $_SESSION['view'] = $viewArray;
         return header('Location: Admin.php');
     }
+    public function findReserve($page, $name) {
+        unset($_SESSION['view']);
+        $viewArray = [];
+
+        $sql = "SELECT * FROM reservations WHERE name LIKE ? and status = ?";
+        $stmt = $this->db_connect()->prepare($sql);
+        $stmt->execute(["%".strtolower($name)."%", $page]);
+
+        if ($stmt->rowCount() < 1) {
+            $_SESSION['nodata'] = "Name not found.";
+            return header('Location: Admin.php');
+        }
+        while ($row = $stmt->fetch()) {
+            array_push($viewArray, [
+                $row['reservationId'], $row['name'], $row['contact'], $row['date_reserved'], $row['time_reserved'],
+                $row['reservation_from'], $row['reservation_to'], $row['room'], $row['capacity'], $row['payment'], $row['days'], $row['subtotal'],
+                $row['discount'], $row['addtnl'], $row['total'], $row['status']
+            ]);
+        }
+        $_SESSION['view'] = $viewArray;
+        return header('Location: Admin.php');
+    }
 
     // Update //
-    // Change Reservation Status //
     public function updateStatus($update, $id)
     {
         $sql = "UPDATE reservations SET status = ? WHERE reservationId = ?";
@@ -87,7 +99,6 @@ class Reservation extends Database
     }
 
     // Delete //
-    // Option to delete Rejected or Completed Status Reservations //
     public function deleteInfo($id)
     {
         $sql = "DELETE FROM reservations WHERE reservationId = ?";
@@ -96,12 +107,9 @@ class Reservation extends Database
         $this->viewList("Pending");
     }
 
-    // Additional Functions create below //
-
     // Compute Total //
     public function computeTotal($name, $phone, $from, $to, $room, $cap, $payment, $datetime)
     {
-        // Return early for invalid variables //
         if (!$this->isValidDate($from, $to)) {
             $_SESSION['data'] = [
                 'error' => "Invalid date selected!"
@@ -115,10 +123,8 @@ class Reservation extends Database
             return header('Location: Reserve.php');
         }
 
-        // Retrieve submission date and time //
         $arr = explode("-", $datetime);
 
-        // Do some computations beforehand //
         $this->setDays($from, $to);
         $this->setRate($room, $cap);
         $this->setAddChar($payment);
@@ -127,7 +133,6 @@ class Reservation extends Database
         $this->setAddTot();
         $this->setTotal();
 
-        // Pass computed data as array to a session variable //
         $_SESSION['data'] = [
             'name' => $name,
             'phone' => $phone,
@@ -144,7 +149,6 @@ class Reservation extends Database
             'disc' => $this->getDiscTot(),
             'total' => $this->getTotal(),
         ];
-        //return some data and a header to another location
         return header('Location: Reserve.php?step=overview');
     }
 
@@ -273,7 +277,8 @@ class Reservation extends Database
         return $this->total;
     }
 
-    // Validate Admin Login //
+
+    // Login //
     public function validateLogin($user, $pass)
     {
         $hash = hash('sha256', $pass);

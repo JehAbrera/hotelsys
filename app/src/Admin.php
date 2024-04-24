@@ -34,6 +34,31 @@ if (!isset($_SESSION['isLogged'])) {
                 <button type="submit" name="page" value="Rejected" class="btn join-item">Rejected</button>
             </form>
         </div>
+        <div class=" flex justify-between w-3/5">
+            <div class=" font-semibold text-xl">
+                <?php
+                if (isset($_SESSION['page'])) {
+                    echo $_SESSION['page'];
+                } else {
+                    echo "Pending";
+                }
+                ?>
+            </div>
+            <div>
+                <form action="Controller.php" method="post">
+                    <div class="join">
+                        <div>
+                            <div>
+                                <input class="input input-bordered join-item" name="name" placeholder="Search Name" />
+                            </div>
+                        </div>
+                        <div class="indicator">
+                            <button type="submit" name="find" class="btn join-item">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         <table class=" w-3/5 table table-zebra">
             <thead>
                 <tr>
@@ -57,7 +82,7 @@ if (!isset($_SESSION['isLogged'])) {
                         <td><?= $value[5] ?></td>
                         <td><?= $value[6] ?></td>
                         <td>
-                            <div class=" tooltip" data-tip="View Details"><label class=" cursor-pointer" for="modal<?= $value[0] ?>"><i data-lucide="eye"></i></label></div>
+                            <div class=" tooltip" data-tip="View Details"><label class=" cursor-pointer btn" for="modal<?= $value[0] ?>">View</label></div>
                             <input type="checkbox" id="modal<?= $value[0] ?>" class="modal-toggle" />
                             <div class="modal" role="dialog">
                                 <div class="modal-box">

@@ -1,7 +1,5 @@
 <?php
-// Use this page as post landing page //
-// Call relevant functions based on user decision //
-// Retrieve values and pass it as parameters to Reservation Functions //
+
 
 include 'Reservation.php';
 
@@ -38,6 +36,13 @@ if (isset($_POST['save'])) {
 if (isset($_POST['page'])) {
     $page = $_POST['page'];
     $obj->viewList($page);
+}
+
+if (isset($_POST['find'])) {
+    $page = $_SESSION['page'];
+    $name = $_POST['name'];
+
+    $obj->findReserve($page, $name);
 }
 
 if (isset($_POST['update'])) {
