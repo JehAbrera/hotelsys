@@ -35,50 +35,10 @@
     </nav>
     <!-- Main Content Area -->
     <main>
-        <section role="hero" id="hero" class=" h-screen w-full flex flex-col items-center justify-center">
-            <div class=" grid grid-cols-2 gap-2 p-4 w-full">
-                <div class=" w-full stack">
-                    <img class="mask mask-squircle w-3/5 aspect-square" src="../src/images/happy.jpg" />
-                </div>
-                <div class=" flex flex-col items-center justify-center gap-4">
-                    <span class=" p-1 mb-3 text-center text-2xl font-bold border-b-2 border-b-zinc-100 text-zinc-100">Get to know us!</span>
-                    <p class=" text-justify text-zinc-100">
-                        Sunset City Suites stands as a beacon of excellence among hotels, renowned for its impeccable service and top-notch accommodations. Boasting a stellar reputation, it consistently garners high ratings from guests who praise its commitment to hospitality. Nestled in the heart of the city, Sunset City Suites offers a luxurious retreat adorned with modern amenities to ensure an unforgettable stay. Guests are treated to a refreshing escape with a sparkling pool, perfect for unwinding after a day of exploration or business meetings. The hotel's stylish bar beckons with its chic ambiance, offering an array of cocktails and beverages to complement every palate. With a dedication to exceeding expectations, Sunset City Suites embodies the epitome of hospitality, promising an unparalleled experience for every visitor. </p>
-                    <button type="button" class=" btn btn-success self-end">Discover More!</button>
-                </div>
-            </div>
-        </section>
-        <section class=" h-screen w-full flex flex-col justify-center items-center gap-2">
-            <div class="carousel w-3/5 aspect-[2/1] rounded-2xl">
-                <div id="slide1" class="carousel-item relative w-full">
-                    <img src="../src/images/bfast.jpg" class="w-full" />
-                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide4" class="btn btn-circle">❮</a>
-                        <a href="#slide2" class="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide2" class="carousel-item relative w-full">
-                    <img src="../src/images/pool.jpg" class="w-full" />
-                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide1" class="btn btn-circle">❮</a>
-                        <a href="#slide3" class="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide3" class="carousel-item relative w-full">
-                    <img src="../src/images/bar.jpg" class="w-full" />
-                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide2" class="btn btn-circle">❮</a>
-                        <a href="#slide4" class="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide4" class="carousel-item relative w-full">
-                    <img src="../src/images/room.jpg" class="w-full" />
-                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide3" class="btn btn-circle">❮</a>
-                        <a href="#slide1" class="btn btn-circle">❯</a>
-                    </div>
-                </div>
-            </div>
+        <section class=" w-full h-screen flex flex-col items-center justify-center gap-4 text-zinc-100">
+            <span class=" font-bold text-4xl">Multi-Awarded</span>
+            <span class=" font-extrabold text-8xl">Luxurious</span>
+            <span class=" font-bold text-4xl">Vibrant</span>
             <div class="stats shadow w-3/5">
                 <div class="stat">
                     <div class="stat-figure text-secondary">
@@ -108,19 +68,23 @@
                 </div>
 
             </div>
-        </section>
-        <section class=" w-full h-screen flex flex-col items-center justify-center gap-4 text-zinc-100">
-            <span class=" font-bold text-4xl">Multi-Awarded</span>
-            <span class=" font-extrabold text-8xl">Luxurious</span>
-            <span class=" font-bold text-4xl">Vibrant</span>
             <button type="button" class=" btn btn-success" onclick=" location.href='Reserve.php'">Experience us now!</button>
         </section>
+        <section role="hero" id="hero" class=" h-screen w-full flex flex-col items-center justify-center">
+            <div class=" grid grid-cols-2 gap-2 p-4 w-full">
+                <div class=" w-full stack">
+                    <img class="mask mask-squircle w-3/5 aspect-square" src="../src/images/happy.jpg" />
+                </div>
+                <div class=" flex flex-col items-center justify-center gap-4">
+                    <span class=" p-1 mb-3 text-center text-2xl font-bold border-b-2 border-b-zinc-100 text-zinc-100">Get to know us!</span>
+                    <p class=" text-justify text-zinc-100">
+                        Sunset City Suites stands as a beacon of excellence among hotels, renowned for its impeccable service and top-notch accommodations. Boasting a stellar reputation, it consistently garners high ratings from guests who praise its commitment to hospitality. Nestled in the heart of the city, Sunset City Suites offers a luxurious retreat adorned with modern amenities to ensure an unforgettable stay. Guests are treated to a refreshing escape with a sparkling pool, perfect for unwinding after a day of exploration or business meetings. The hotel's stylish bar beckons with its chic ambiance, offering an array of cocktails and beverages to complement every palate. With a dedication to exceeding expectations, Sunset City Suites embodies the epitome of hospitality, promising an unparalleled experience for every visitor. </p>
+                    <button type="button" onclick="location.href = 'Contact.php'" class=" btn btn-success self-end">Reach us out</button>
+                </div>
+            </div>
+        </section>
     </main>
-    <!-- Footer Area -->
-    <footer class=" footer bg-slate-950 text-zinc-100">
-        <div></div>
-        <span class=" flex flex-row"><i data-lucide="copyright"></i>All rights reserved.</span>
-    </footer>
+    
     <!-- Icon CDN # Source: Lucide.dev -->
     <!-- Development version -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>

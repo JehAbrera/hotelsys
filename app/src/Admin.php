@@ -6,7 +6,7 @@ if (!isset($_SESSION['isLogged'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en" class=" scroll-smooth">
+<html lang="en" class=" scroll-smooth" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
